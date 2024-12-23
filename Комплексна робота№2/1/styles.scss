@@ -1,0 +1,211 @@
+/* Загальні стилі */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #333; /* Темно-сірий фон */
+  color: #fff; /* Білий текст */
+}
+
+ul {
+  list-style-type: none;
+}
+
+input[type="text"] {
+  width: 30%; /* Вужче пошукове поле */
+  height: 40px; /* Збільшена висота */
+  padding: 5px;
+  border: 1px solid #0066cc; /* Синя рамка */
+  font-size: 14px; /* Зменшуємо розмір шрифту */
+  background-color: #333; /* Темно-сірий інпут */
+  color: #fff; /* Білий текст */
+
+  &::placeholder {
+    color: #aaa; /* Світло-сірий плейсхолдер */
+  }
+
+  &:focus {
+    border: 1px solid #ffcc00; /* Підсвічування жовтим кольором */
+    outline: none;
+    color: #ffcc00;
+  }
+}
+
+/* Шапка */
+.header-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  .logo {
+    width: 20%;
+    font-size: 3.5vw; /* Зменшуємо розмір шрифту логотипу */
+    font-weight: bold;
+    padding: 10px;
+    color: #ffcc00; /* Жовтий логотип */
+    text-transform: uppercase; /* Великі літери */
+    letter-spacing: 1px; /* Відстань між буквами */
+  }
+
+  .search {
+    width: 100%;
+    padding: 10px;
+    text-align: right; /* Пошук праворуч */
+  }
+}
+
+.nav {
+  ul {
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffcc00; /* Жовтий фон */
+    padding: 10px;
+
+    li {
+      font-weight: bold;
+      color: #333; /* Темний текст */
+      cursor: pointer;
+      font-size: 2.5vw; /* Зменшено значення для мобільних */
+
+      &:hover {
+        color: #0066cc; /* Синій при наведенні */
+      }
+    }
+  }
+}
+
+/* Контейнер */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  gap: 10px;
+  margin: 20px;
+}
+
+/* Ліва панель */
+.sidebar {
+  display: table;
+  background-color: #555; /* Темно-сірий фон */
+  padding: 10px;
+  border: 1px solid #444; /* Темніша рамка */
+  color: #ffcc00; /* Жовтий текст */
+
+  ul {
+    li {
+      margin: 10px 0;
+      font-size: 1.8vw; /* Трошки зменшуємо шрифт */
+      color: #ffcc00; /* Жовтий текст */
+
+      &:hover {
+        color: #0066cc; /* Синій при наведенні */
+      }
+    }
+  }
+}
+
+/* Права панель */
+.trending {
+  background-color: #555; /* Темно-сірий фон */
+  padding: 10px;
+  border: 1px solid #444; /* Темніша рамка */
+  color: #ffcc00; /* Жовтий текст */
+
+  ul {
+    li {
+      margin: 10px 0;
+      font-size: 1.8vw; /* Трошки зменшуємо шрифт */
+      color: #ffcc00; /* Жовтий текст */
+
+      &:hover {
+        color: #0066cc; /* Синій при наведенні */
+      }
+    }
+  }
+}
+
+/* Основний контент */
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #444; /* Світліший сірий блок */
+  padding: 20px;
+  border: none;
+  min-height: 200px;
+  gap: 10px;
+
+  img {
+    width: 70%; /* Менша ширина для картинок */
+    max-width: 500px; /* Обмежуємо максимальну ширину для картинок */
+    height: auto; /* Висота змінюється пропорційно */
+    object-fit: cover;
+    border: 1px solid #0066cc;
+    border-radius: 5px;
+  }
+
+  .text {
+    text-align: center;
+    color: #fff; /* Білий текст */
+    font-size: 2.5vw; /* Зменшуємо шрифт */
+  }
+}
+
+/* Адаптивність для мобільних пристроїв */
+@media screen and (max-width: 768px) {
+  .header-table .logo {
+    font-size: 5vw; /* Зменшуємо шрифт логотипу на мобільних */
+  }
+
+  .container {
+    grid-template-columns: 1fr; /* Один стовпець для мобільних */
+    margin: 10px;
+  }
+
+  input[type="text"] {
+    width: 80%; /* Пошук на більшу частину ширини */
+  }
+
+  /* Сховати бокові панелі на мобільних пристроях */
+  .sidebar,
+  .trending {
+    display: none;
+  }
+
+  /* Центрування та коректне відображення тексту */
+  .text {
+    font-size: 4vw; /* Збільшення шрифта на мобільних */
+  }
+
+  /* Панель навігації на мобільних пристроях */
+  .nav ul {
+    display: flex; /* Використовуємо flex для горизонтального відображення */
+    justify-content: center; /* Центрування елементів */
+    background-color: #ffcc00; /* Жовтий фон */
+    padding: 10px;
+    width: 100%; /* Займає всю ширину */
+    margin: 0; /* Прибираємо відступи */
+  }
+
+  .nav ul li {
+    font-size: 4vw; /* Збільшення шрифта на мобільних */
+    padding: 15px; /* Збільшення відступів для кнопок */
+    color: #333; /* Темний текст */
+    width: auto; /* Встановлюємо авто ширину для кожного елементу */
+    text-align: center; /* Центрування тексту */
+
+    &:hover {
+      background-color: #0066cc; /* Синій фон при наведенні */
+      color: #fff; /* Білий текст при наведенні */
+    }
+  }
+}

@@ -1,0 +1,163 @@
+/* Загальні стилі */
+*
+  margin 0
+  padding 0
+  box-sizing border-box
+  font-family Arial, sans-serif
+
+body, html
+  height 100%
+  line-height 1.6
+  color #e0e0e0
+  background-color #1c1c1c
+
+/* Шапка */
+.header
+  background-color #121212
+  color #e0e0e0
+  height 100px
+
+.header-container
+  display flex
+  justify-content center
+  align-items center
+  max-width 1200px
+  margin 0 auto
+
+.logo
+  font-size 60px
+  font-weight bold
+  color #f8c02c
+
+/* Кнопка під логотипом (тільки на мобільних пристроях) */
+.toggle-button
+  display none
+  background-color #f8c02c
+  color #121212
+  padding 15px
+  font-size 18px
+  border none
+  border-radius 0
+  cursor pointer
+  width 100%
+  text-align center
+  margin-top 20px
+
+/* Основна секція */
+.main-section
+  display flex
+  justify-content space-between
+  padding 20px 20px
+  flex-wrap wrap
+  padding-top 20px
+
+.left-panel
+  display flex
+  flex-direction column
+  gap 20px
+  width 70%
+  padding-top 20px
+
+.panel-feature
+  display flex
+  gap 20px
+  background #1c1c1c
+  padding 20px
+  color #e0e0e0
+  border-radius 5px
+
+.panel-image
+  width 1170px
+  height 243px
+  background-color transparent
+  border-radius 5px
+  display flex
+  flex-direction column
+
+.panel-image img
+  width 100%
+  height 100%
+  object-fit cover
+  border-radius 5px
+
+.image-container
+  display flex
+  flex-direction column
+  gap 0
+  width 100%
+
+.left-image, .right-image
+  width 100%
+  height 100%
+  object-fit cover
+  border-radius 5px
+
+.panel-text
+  flex-grow 1
+  display flex
+  flex-direction column
+
+.panel-text h2
+  margin-bottom 10px
+  font-size 24px
+  color #f8c02c
+
+.panel-text p
+  color #b0b0b0
+  font-size 16px
+
+/* Права панель */
+.right-panel
+  width 30%
+  background #333
+  padding 20px
+  color #e0e0e0
+  height 100%
+  position fixed
+  top 100px
+  right 0
+  bottom 0
+
+/* Медіа-запити для мобільних пристроїв */
+@media screen and (max-width: 768px)
+  .main-section
+    flex-direction column
+    padding 10px
+    padding-top 80px
+
+  .left-panel
+    width 100%
+    padding-top 10px
+
+  .panel-feature
+    flex-direction column
+    gap 10px
+
+  .panel-image
+    width 100%
+    height auto
+
+  .logo
+    font-size 40px
+
+  .panel-text h2
+    font-size 20px
+
+  .panel-text p
+    font-size 14px
+
+  .toggle-button
+    display block
+    background-color #f8c02c
+    color #121212
+    padding 15px
+    font-size 18px
+    border none
+    border-radius 0
+    cursor pointer
+    width 100%
+    text-align center
+    margin-top 20px
+
+  .right-panel
+    display none

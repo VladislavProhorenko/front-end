@@ -1,0 +1,248 @@
+// Переменные
+$primary-color: #ffcc00;
+$secondary-color: #0066cc;
+$background-color: #333;
+$sidebar-bg: #444;
+$font-family: Arial, sans-serif;
+$font-size: 18px;
+$border-radius: 5px;
+$btn-padding: 10px 20px;
+$input-padding: 10px;
+$btn-font-size: 16px;
+$grid-gap: 20px;
+
+// Загальні стилі
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+
+body {
+  background-color: $background-color;
+  color: #fff;
+}
+
+ul {
+  list-style-type: none;
+}
+
+input[type="text"] {
+  height: 40px;
+  padding: $input-padding;
+  font-size: $font-size;
+  border: 2px solid $primary-color;
+  background-color: $background-color;
+  color: #fff;
+  width: 100%;
+  border-radius: $border-radius;
+
+  &::placeholder {
+    color: #aaa;
+  }
+
+  &:focus {
+    border: 2px solid $primary-color;
+    outline: none;
+  }
+}
+
+// Шапка
+.header-table {
+  width: 100%;
+  border-collapse: collapse;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 0;
+
+  .logo {
+    font-size: 40px;
+    font-weight: bold;
+    padding: 10px;
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .search-container {
+    width: 100%;
+    padding: $input-padding;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.all-products-btn {
+  height: 40px;
+  background-color: $secondary-color;
+  color: #fff;
+  border: none;
+  font-size: $font-size;
+  cursor: pointer;
+  border-radius: $border-radius;
+  margin-left: 20px;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+// Контейнер
+.container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: $grid-gap;
+  margin: 20px;
+}
+
+// Ліва панель для великих екранів
+.sidebar {
+  background-color: $sidebar-bg;
+  padding: 20px;
+  border-radius: $border-radius;
+
+  .menu-item {
+    padding: 10px;
+    color: #fff;
+    font-size: $font-size;
+    cursor: pointer;
+    border-bottom: 1px solid $secondary-color;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}
+
+// Основний контент
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: $grid-gap;
+
+  .mobile-buttons {
+    display: none;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $grid-gap;
+  }
+
+  .block {
+    background-color: $sidebar-bg;
+    padding: 20px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid $secondary-color;
+    border-radius: $border-radius;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 250px;
+
+    img {
+      width: 80%;
+      height: auto;
+      max-width: 250px;
+      object-fit: cover;
+      border-radius: $border-radius;
+    }
+
+    p {
+      font-size: $font-size;
+      margin: 10px 0;
+    }
+
+    .description {
+      font-size: 16px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .buy-btn {
+      padding: $btn-padding;
+      background-color: $primary-color;
+      color: $background-color;
+      border: none;
+      font-size: $btn-font-size;
+      cursor: pointer;
+      border-radius: $border-radius;
+
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+}
+
+// Адаптивність для мобільних пристроїв
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .mobile-buttons {
+    display: flex !important;  // Явно заставляем отображаться
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    position: relative;  // Убедитесь, что кнопки не перекрываются
+  }
+
+  .catalog-btn,
+  .filter-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: $font-size;
+    background-color: $secondary-color;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: $border-radius;
+    text-align: center;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+
+  .content {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .header-table .logo {
+    font-size: 30px;
+  }
+
+  input[type="text"] {
+    width: 80%;
+  }
+
+  .all-products-btn {
+    font-size: 16px;
+    padding: $input-padding;
+  }
+
+  .block p {
+    font-size: 14px;
+  }
+
+  .block .description {
+    font-size: 14px;
+  }
+
+  .buy-btn {
+    font-size: 14px;
+  }
+}

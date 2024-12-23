@@ -1,0 +1,251 @@
+// Переменные
+$color-bg: #1c1c1c;
+$color-text: #e0e0e0;
+$color-primary: #f8c02c;
+
+// Функция для затемнения цвета
+@use "sass:color";
+
+@function darken-color($color, $percent) {
+  @return color.mix(black, $color, $percent);
+}
+
+// Общие стили
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: $color-text;
+  background-color: $color-bg;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+// Шапка и футер
+.header, .footer {
+  background-color: darken-color($color-bg, 10%);
+  color: $color-text;
+}
+
+.header-container, .footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: $color-primary;
+}
+
+.btn-register {
+  padding: 10px 20px;
+  background-color: $color-primary;
+  color: darken-color($color-bg, 20%);
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+
+  &:hover {
+    background-color: darken-color($color-primary, 10%);
+  }
+}
+
+// Основная секция
+.intro-section {
+  padding: 50px 20px;
+  background-size: cover;
+  color: $color-text;
+  border-bottom: 2px solid darken-color($color-bg, 10%);
+}
+
+.intro-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.intro-text-container {
+  flex: 1;
+}
+
+.intro-image-container {
+  flex: 0 0 300px;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+
+// Три блока
+.features-section {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding: 40px 20px;
+  background: url('artbreeder-image-2024-12-19T05_49_22.242Z.png') no-repeat center center;
+  background-size: cover;
+  color: $color-text;
+
+  .feature {
+    background: rgba(28, 28, 28, 0.8);
+    padding: 20px;
+    border: 2px solid $color-primary;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: $color-primary;
+    }
+  }
+}
+
+// Кроки
+.steps-section {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: $color-bg;
+  border-top: 2px solid darken-color($color-bg, 10%);
+
+  .steps-heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: $color-primary;
+  }
+
+  .steps-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    .step {
+      background-color: $color-bg;
+      padding: 20px;
+      border: 2px solid $color-primary;
+      border-radius: 5px;
+      width: 200px;
+      text-align: center;
+
+      .step-number {
+        font-size: 32px;
+        font-weight: bold;
+        color: $color-primary;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .steps-button-container {
+    text-align: center;
+    margin-top: 20px;
+
+    .btn-register {
+      padding: 10px 20px;
+    }
+  }
+}
+
+// Футер
+.footer {
+  padding: 20px 10px;
+  margin-top: 20px;
+
+  ul {
+    list-style: none;
+
+    li {
+      margin: 5px 0;
+      color: darken-color($color-text, 10%);
+    }
+  }
+}
+
+// Медиазапросы
+// Медиазапросы
+@media (max-width: 768px) {
+  .intro-content {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;  // Центрируем блоки по оси X
+    justify-content: center; // Центрируем блоки по оси Y
+
+    .intro-image-container {
+      width: 80%;
+      order: -1;
+      margin-bottom: 20px;
+    }
+
+    .intro-text-container {
+      width: 100%;
+    }
+  }
+
+  .features-section {
+    flex-direction: column;
+    padding: 10px;
+    text-align: center;  // Центрируем текст внутри блока
+
+    .feature {
+      width: 80%;
+      margin: 0 auto 20px auto; // Центрируем блоки с помощью auto
+      text-align: center;
+    }
+  }
+
+  .steps-container {
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center; // Центрируем блоки по оси X
+
+    .step {
+      width: 80%;
+      margin: 0 auto 20px auto; // Центрируем блоки с помощью auto
+      text-align: center;
+    }
+  }
+
+  .footer-container {
+    text-align: center; // Центрируем элементы в футере
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 18px;
+  }
+
+  .btn-register {
+    font-size: 14px;
+  }
+
+  .steps-heading {
+    font-size: 24px;
+  }
+
+  .step-number {
+    font-size: 28px;
+  }
+}

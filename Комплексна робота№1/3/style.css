@@ -1,0 +1,238 @@
+/* Загальні стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: #e0e0e0;
+    background-color: #1c1c1c;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+/* Шапка */
+.header, .footer {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.header-container, .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f8c02c;
+}
+
+.btn-register {
+    padding: 10px 20px;
+    background-color: #f8c02c;
+    color: #121212;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.btn-register:hover {
+    background-color: #e0a800;
+}
+
+/* Основна секція */
+.intro-section {
+    padding: 50px 20px;
+    background-size: cover;
+    color: #fff;
+    border-bottom: 2px solid #333;
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.intro-text-container {
+    flex: 1;
+}
+
+.intro-image-container {
+    flex: 0 0 300px;
+}
+
+.intro-image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Три блоки */
+.features-section {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    padding: 40px 20px;
+    background: url('artbreeder-image-2024-12-19T05_49_22.242Z.png') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+}
+
+.feature {
+    background: rgba(28, 28, 28, 0.8);
+    padding: 20px;
+    border: 2px solid #f8c02c;
+    border-radius: 5px;
+    width: 300px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+.feature h2 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #f8c02c;
+}
+
+/* Кроки */
+.steps-section {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #1c1c1c;
+    border-top: 2px solid #333;
+}
+
+.steps-heading {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #f8c02c;
+}
+
+.steps-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.step {
+    background-color: #121212;
+    padding: 20px;
+    border: 2px solid #f8c02c;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    color: #e0e0e0;
+}
+
+.step-number {
+    font-size: 32px;
+    font-weight: bold;
+    color: #f8c02c;
+    margin-bottom: 10px;
+}
+
+.steps-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Футер */
+.footer {
+    padding: 20px 10px;
+    margin-top: 20px;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer ul li {
+    margin: 5px 0;
+    color: #b0b0b0;
+}
+
+/* Медіа-запити для мобільних пристроїв */
+@media (max-width: 768px) {
+    /* Для мобільних пристроїв */
+    .intro-content {
+        flex-direction: column; /* Змінюємо порядок на вертикальний */
+        text-align: center;
+    }
+
+    .intro-image-container {
+        width: 30%; /* Розтягуємо зображення на всю ширину */
+        order: -1;
+    }
+
+    .features-section {
+        flex-direction: column; /* Три блоки стають вертикальними */
+        padding: 10px 10px;
+    }
+
+    .feature {
+        width: 100%; /* Відображаємо блоки на всю ширину */
+        margin-bottom: 20px;
+    }
+
+    .steps-container {
+        flex-direction: column; /* Строки стають вертикальними */
+        gap: 30px;
+    }
+
+    .step {
+        width: 100%; /* Створюємо повну ширину для кожного кроку */
+    }
+
+    .steps-button-container {
+        margin-top: 30px; /* Додаємо відступ */
+    }
+
+    .header-container, .footer-container {
+        flex-direction: column; /* Змінюємо напрямок для мобільних пристроїв */
+        align-items: center;
+    }
+
+    .logo {
+        font-size: 20px; /* Зменшуємо розмір шрифта для мобільних */
+    }
+
+    .btn-register {
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Для дуже малих екранів (наприклад, смартфонів) */
+    .logo {
+        font-size: 18px; /* Ще менший розмір шрифта */
+    }
+
+    .btn-register {
+        font-size: 14px; /* Менший текст на кнопці */
+    }
+
+    .steps-heading {
+        font-size: 24px; /* Зменшуємо заголовок кроків */
+    }
+
+    .step-number {
+        font-size: 28px; /* Зменшуємо розмір номеру кроку */
+    }
+}
